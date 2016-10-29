@@ -73,8 +73,8 @@
 
 .mfp-close, .mfp-arrow, .mfp-preloader, .mfp-counter {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none; }
+-moz-user-select: none; }
+/*  user-select: none; } */					/* didn't pass css3 validator */
 
 .mfp-loading.mfp-figure {
   display: none; }

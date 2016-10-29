@@ -25,7 +25,7 @@ $('.gallery').magnificPopup({
 	
 	// option for image
 	image: {
-		titleSrc: 'caption',
+		titleSrc: 'title',
 		verticalFit: true
 	}
 });
@@ -54,7 +54,7 @@ $('#search').keyup(function(){
 			var $this = $(this);
 			
 			// Search captions and titles for matches to searchString
-			if ($this.attr('caption').toLowerCase().indexOf(searchString) > -1) {
+			if ($this.attr('title').toLowerCase().indexOf(searchString) > -1) {
 				$matching = $matching.add(this);
 			} else {
 				// removes any previously matched item
