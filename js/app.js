@@ -1,3 +1,7 @@
+
+/************************************************/
+/* Gallery lightbox setup                       */
+/************************************************/
 $('.gallery').magnificPopup({
 	
 	//main options
@@ -24,4 +28,43 @@ $('.gallery').magnificPopup({
 		titleSrc: 'caption',
 		verticalFit: true
 	}
+});
+
+/************************************************/
+/* Search                                       */
+/************************************************/
+var timeout;
+
+// setup search plugin mixItUp
+$('#searchable-container').mixItUp();
+
+// listen for input on search input
+$('#search').keyup(function(){
+	
+	// value to search by
+	var searchString = $(this).val().toLowerCase();
+	
+	// wait to see if input done
+	window.clearTimeout(timeout);
+	timeout = window.setTimeout( function() {
+		
+		var $matching = $();
+	
+		$('.mix').each(function(){
+			var $this = $(this);
+			
+			// Search captions and titles for matches to searchString
+			if ($this.attr('caption').toLowerCase().indexOf(searchString) > -1) {
+				$matching = $matching.add(this);
+			} else {
+				// removes any previously matched item
+				$matching = $matching.not(this);
+			}
+
+		});
+		
+		// This is where magic happens
+		$('#searchable-container').mixItUp('filter', $matching);
+		
+	},250); // timeout delay in milli-seconds
 });

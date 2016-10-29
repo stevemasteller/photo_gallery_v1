@@ -69,3 +69,7 @@ a {
 img {
 	width: 100%;
 }
+
+#searchable-container .mix{
+	display: none;
+}
